@@ -2,32 +2,30 @@
 1. PIRMS PROGRAMMĒŠANAS (Setup)
 Izveidot jaunu Unity 2D projektu
 
-Iestatīt Git (.gitignore, .gitattributes)
-
 Izveidot GitHub repozitoriju
-
+Izveidot README.md
 Sagatavot attēlus (sprites) - tēli, apģērbi, fons
 
 Sagatavot audio failus
 
-2. UI ELEMENTU IZPĒTE (Testēšana)
-Izmēģināt UI Button
+2. UI ELEMENTU RADĪŠANA 
+ UI Button
 
-Izmēģināt UI Text
+ UI Text
 
-Izmēģināt UI Input Field
+ UI Input Field
 
-Izmēģināt UI Panel
+ UI Panel
 
-Izmēģināt UI Image
+ UI Image
 
-Izmēģināt UI Slider
+UI Slider
 
-Izmēģināt UI Toggle
+UI Toggle
 
-Izmēģināt UI Dropdown
+ UI Dropdown
 
-Izmēģināt UI Scroll View
+UI Scroll View
 
 3. SKRIPTU IZSTRĀDE (C#)
 Izveidot skriptu darbam ar tekstu (TextManager.cs)
@@ -67,8 +65,6 @@ Pārbaudīt visas prasības
 Uzlabot UI izkārtojumu
 
 Pievienot krāsas/noformējumu
-
-Izveidot README.md
 
 Veikt pēdējo Git commit
 
