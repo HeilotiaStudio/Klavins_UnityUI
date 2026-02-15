@@ -10,7 +10,7 @@ public class CharacterDropTarget : MonoBehaviour, IDropHandler
     
     public void OnDrop(PointerEventData eventData)
     {
-        Debug.Log($"🎯 Kaut kas nomests uz tēla!");
+        Debug.Log($"Kaut kas nomests uz tēla!");
         
         // Pārbauda vai nomestais ir drēbes
         DragDropClothing draggedClothing = eventData.pointerDrag.GetComponent<DragDropClothing>();

@@ -49,7 +49,7 @@ public class DragDropClothing : MonoBehaviour,
 
     public void OnBeginDrag(PointerEventData data)
     {
-        Debug.Log($"👉 Sāk vilkt {clothingType} {clothingIndex}");
+        Debug.Log($"Sāk vilkt {clothingType} {clothingIndex}");
         
         // Padara objektu caurspīdīgāku velkot
         canvasGroup.alpha = 0.8f;
@@ -78,7 +78,7 @@ public class DragDropClothing : MonoBehaviour,
 
     public void OnEndDrag(PointerEventData data)
     {
-        Debug.Log($"✅ Beidz vilkt {clothingType} {clothingIndex}");
+        Debug.Log($"Beidz vilkt {clothingType} {clothingIndex}");
         
         // Atjauno normālu izskatu
         canvasGroup.alpha = 1f;
@@ -90,7 +90,7 @@ public class DragDropClothing : MonoBehaviour,
         if (droppedOn != null && droppedOn.CompareTag(targetTag))
         {
             // NOLAISTS UZ TĒLA!
-            Debug.Log($"🎯 {clothingType} {clothingIndex} nolaists uz tēla!");
+            Debug.Log($"{clothingType} {clothingIndex} nolaists uz tēla!");
             
             // Pievienojies tēlam kā bērns
             transform.SetParent(droppedOn.transform);
@@ -104,7 +104,7 @@ public class DragDropClothing : MonoBehaviour,
         else
         {
             // NOLAISTS ĀRPUS TĒLA - atgriežas atpakaļ
-            Debug.Log($"❌ {clothingType} {clothingIndex} nolaists ārpus tēla - atgriežas");
+            Debug.Log($" {clothingType} {clothingIndex} nolaists ārpus tēla - atgriežas");
             
             transform.SetParent(originalParent);
             trans.anchoredPosition = originalPosition;
