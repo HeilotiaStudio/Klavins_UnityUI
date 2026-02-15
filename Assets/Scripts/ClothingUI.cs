@@ -3,199 +3,83 @@ using UnityEngine.UI;
 
 public class ClothingUI : MonoBehaviour
 {
-    [Header("Bikses (Pants)")]
+    // Bikses - 3 atsevišķi GameObject (kā tavā piemērā)
     public GameObject bikses1;
     public GameObject bikses2;
     public GameObject bikses3;
-    public Toggle biksesToggle;
+    public GameObject biksesToggle;  // Toggle poga kā GameObject
 
-    [Header("Zābaki (Boots)")]
+    // Zābaki - 3 atsevišķi GameObject
     public GameObject zabaki1;
     public GameObject zabaki2;
     public GameObject zabaki3;
-    public Toggle zabakiToggle;
+    public GameObject zabakiToggle;
 
-    [Header("Cepures (Hats)")]
+    // Cepures - 3 atsevišķi GameObject
     public GameObject cepure1;
     public GameObject cepure2;
     public GameObject cepure3;
-    public Toggle cepuresToggle;
+    public GameObject cepuresToggle;
 
-    [Header("Cimdi (Gloves)")]
+    // Cimdi - 3 atsevišķi GameObject
     public GameObject cimdi1;
     public GameObject cimdi2;
     public GameObject cimdi3;
-    public Toggle cimdiToggle;
+    public GameObject cimdiToggle;
 
-    [Header("Jakas (Jackets)")] // Izmainīts no Amuleti
+    // Jakas - 3 atsevišķi GameObject
     public GameObject jakas1;
     public GameObject jakas2;
     public GameObject jakas3;
-    public Toggle jakasToggle; // Izmainīts nosaukums
-
-    [Header("Character Reference")]
-    public GameObject character;
+    public GameObject jakasToggle;
 
     void Start()
     {
-        // SĀKUMĀ PASLĒPT VISU!!!
-        HideAllClothing();
-        
-        // Pārliecinās, ka toggle pogas ir "off" pozīcijā
-        SetTogglesToFalse();
+        // Sākumā VISU paslēpt 
+        //HideAllClothing();
     }
 
-    // Funkcija, kas paslēpj VISU apģērbu
-    void HideAllClothing()
+    // Bikšu toggle - kā ToggleBean 
+    public void ToggleBikses(bool val)
     {
-        // Paslēpj bikses
-        if (bikses1 != null) bikses1.SetActive(false);
-        if (bikses2 != null) bikses2.SetActive(false);
-        if (bikses3 != null) bikses3.SetActive(false);
+        bikses1.SetActive(val);
+        bikses2.SetActive(val);
+        bikses3.SetActive(val);
         
-        // Paslēpj zābakus
-        if (zabaki1 != null) zabaki1.SetActive(false);
-        if (zabaki2 != null) zabaki2.SetActive(false);
-        if (zabaki3 != null) zabaki3.SetActive(false);
         
-        // Paslēpj cepures
-        if (cepure1 != null) cepure1.SetActive(false);
-        if (cepure2 != null) cepure2.SetActive(false);
-        if (cepure3 != null) cepure3.SetActive(false);
-        
-        // Paslēpj cimdus
-        if (cimdi1 != null) cimdi1.SetActive(false);
-        if (cimdi2 != null) cimdi2.SetActive(false);
-        if (cimdi3 != null) cimdi3.SetActive(false);
-        
-        // Paslēpj jakas
-        if (jakas1 != null) jakas1.SetActive(false);
-        if (jakas2 != null) jakas2.SetActive(false);
-        if (jakas3 != null) jakas3.SetActive(false);
-        
-        Debug.Log("Viss apģērbs paslēpts sākumā!");
-    }
-
- // Pārliecinās, ka toggle pogas ir izslēgtas
-    void SetTogglesToFalse()
-    {
-        if (biksesToggle != null) biksesToggle.isOn = false;
-        if (zabakiToggle != null) zabakiToggle.isOn = false;
-        if (cepuresToggle != null) cepuresToggle.isOn = false;
-        if (cimdiToggle != null) cimdiToggle.isOn = false;
-        if (jakasToggle != null) jakasToggle.isOn = false;
-    }
-
-    // Bikšu toggle
-    public void ToggleBikses(bool value)
-    {
-        bikses1.SetActive(value);
-        bikses2.SetActive(value);
-        bikses3.SetActive(value);
-        Debug.Log($"Bikses: {(value ? "redzamas" : "paslēptas")}");
     }
 
     // Zābaku toggle
-    public void ToggleZabaki(bool value)
+    public void ToggleZabaki(bool val)
     {
-        zabaki1.SetActive(value);
-        zabaki2.SetActive(value);
-        zabaki3.SetActive(value);
-        Debug.Log($"Zābaki: {(value ? "redzami" : "paslēpti")}");
+        zabaki1.SetActive(val);
+        zabaki2.SetActive(val);
+        zabaki3.SetActive(val);
     }
 
     // Cepuru toggle
-    public void ToggleCepures(bool value)
+    public void ToggleCepures(bool val)
     {
-        cepure1.SetActive(value);
-        cepure2.SetActive(value);
-        cepure3.SetActive(value);
-        Debug.Log($"Cepures: {(value ? "redzamas" : "paslēptas")}");
+        cepure1.SetActive(val);
+        cepure2.SetActive(val);
+        cepure3.SetActive(val);
     }
 
     // Cimdu toggle
-    public void ToggleCimdi(bool value)
+    public void ToggleCimdi(bool val)
     {
-        cimdi1.SetActive(value);
-        cimdi2.SetActive(value);
-        cimdi3.SetActive(value);
-        Debug.Log($"Cimdi: {(value ? "redzami" : "paslēpti")}");
+        cimdi1.SetActive(val);
+        cimdi2.SetActive(val);
+        cimdi3.SetActive(val);
     }
 
-    // Jaku toggle (izmainīts no Amuleti)
-    public void ToggleJakas(bool value)
+    // Jaku toggle
+    public void ToggleJakas(bool val)
     {
-        jakas1.SetActive(value);
-        jakas2.SetActive(value);
-        jakas3.SetActive(value);
-        Debug.Log($"Jakas: {(value ? "redzamas" : "paslēptas")}");
+        jakas1.SetActive(val);
+        jakas2.SetActive(val);
+        jakas3.SetActive(val);
     }
 
-    // Opcija: Paslēpt VISU
-    public void HideAll()
-    {
-        if (biksesToggle != null) 
-        {
-            biksesToggle.isOn = false;
-            ToggleBikses(false);
-        }
-        
-        if (zabakiToggle != null)
-        {
-            zabakiToggle.isOn = false;
-            ToggleZabaki(false);
-        }
-        
-        if (cepuresToggle != null)
-        {
-            cepuresToggle.isOn = false;
-            ToggleCepures(false);
-        }
-        
-        if (cimdiToggle != null)
-        {
-            cimdiToggle.isOn = false;
-            ToggleCimdi(false);
-        }
-        
-        if (jakasToggle != null) // Izmainīts no amuletiToggle
-        {
-            jakasToggle.isOn = false;
-            ToggleJakas(false);
-        }
-    }
-
-    // Opcija: Rādīt VISU
-    public void ShowAll()
-    {
-        if (biksesToggle != null)
-        {
-            biksesToggle.isOn = true;
-            ToggleBikses(true);
-        }
-        
-        if (zabakiToggle != null)
-        {
-            zabakiToggle.isOn = true;
-            ToggleZabaki(true);
-        }
-        
-        if (cepuresToggle != null)
-        {
-            cepuresToggle.isOn = true;
-            ToggleCepures(true);
-        }
-        
-        if (cimdiToggle != null)
-        {
-            cimdiToggle.isOn = true;
-            ToggleCimdi(true);
-        }
-        
-        if (jakasToggle != null) // Izmainīts no amuletiToggle
-        {
-            jakasToggle.isOn = true;
-            ToggleJakas(true);
-        }
-    }
-}
+}  
+    
