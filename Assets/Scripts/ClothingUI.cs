@@ -27,14 +27,64 @@ public class ClothingUI : MonoBehaviour
     public GameObject cimdi3;
     public Toggle cimdiToggle;
 
-    [Header("Amuleti (Amulets)")]
-    public GameObject amulets1;
-    public GameObject amulets2;
-    public GameObject amulets3;
-    public Toggle amuletiToggle;
+    [Header("Jakas (Jackets)")] // Izmainīts no Amuleti
+    public GameObject jakas1;
+    public GameObject jakas2;
+    public GameObject jakas3;
+    public Toggle jakasToggle; // Izmainīts nosaukums
 
     [Header("Character Reference")]
-    public GameObject character; // Tēls, uz kura liek drēbes
+    public GameObject character;
+
+    void Start()
+    {
+        // SĀKUMĀ PASLĒPT VISU!!!
+        HideAllClothing();
+        
+        // Pārliecinās, ka toggle pogas ir "off" pozīcijā
+        SetTogglesToFalse();
+    }
+
+    // Funkcija, kas paslēpj VISU apģērbu
+    void HideAllClothing()
+    {
+        // Paslēpj bikses
+        if (bikses1 != null) bikses1.SetActive(false);
+        if (bikses2 != null) bikses2.SetActive(false);
+        if (bikses3 != null) bikses3.SetActive(false);
+        
+        // Paslēpj zābakus
+        if (zabaki1 != null) zabaki1.SetActive(false);
+        if (zabaki2 != null) zabaki2.SetActive(false);
+        if (zabaki3 != null) zabaki3.SetActive(false);
+        
+        // Paslēpj cepures
+        if (cepure1 != null) cepure1.SetActive(false);
+        if (cepure2 != null) cepure2.SetActive(false);
+        if (cepure3 != null) cepure3.SetActive(false);
+        
+        // Paslēpj cimdus
+        if (cimdi1 != null) cimdi1.SetActive(false);
+        if (cimdi2 != null) cimdi2.SetActive(false);
+        if (cimdi3 != null) cimdi3.SetActive(false);
+        
+        // Paslēpj jakas
+        if (jakas1 != null) jakas1.SetActive(false);
+        if (jakas2 != null) jakas2.SetActive(false);
+        if (jakas3 != null) jakas3.SetActive(false);
+        
+        Debug.Log("Viss apģērbs paslēpts sākumā!");
+    }
+
+ // Pārliecinās, ka toggle pogas ir izslēgtas
+    void SetTogglesToFalse()
+    {
+        if (biksesToggle != null) biksesToggle.isOn = false;
+        if (zabakiToggle != null) zabakiToggle.isOn = false;
+        if (cepuresToggle != null) cepuresToggle.isOn = false;
+        if (cimdiToggle != null) cimdiToggle.isOn = false;
+        if (jakasToggle != null) jakasToggle.isOn = false;
+    }
 
     // Bikšu toggle
     public void ToggleBikses(bool value)
@@ -72,13 +122,13 @@ public class ClothingUI : MonoBehaviour
         Debug.Log($"Cimdi: {(value ? "redzami" : "paslēpti")}");
     }
 
-    // Amuletu toggle
-    public void ToggleAmuleti(bool value)
+    // Jaku toggle (izmainīts no Amuleti)
+    public void ToggleJakas(bool value)
     {
-        amulets1.SetActive(value);
-        amulets2.SetActive(value);
-        amulets3.SetActive(value);
-        Debug.Log($"Amuleti: {(value ? "redzami" : "paslēpti")}");
+        jakas1.SetActive(value);
+        jakas2.SetActive(value);
+        jakas3.SetActive(value);
+        Debug.Log($"Jakas: {(value ? "redzamas" : "paslēptas")}");
     }
 
     // Opcija: Paslēpt VISU
@@ -108,10 +158,10 @@ public class ClothingUI : MonoBehaviour
             ToggleCimdi(false);
         }
         
-        if (amuletiToggle != null)
+        if (jakasToggle != null) // Izmainīts no amuletiToggle
         {
-            amuletiToggle.isOn = false;
-            ToggleAmuleti(false);
+            jakasToggle.isOn = false;
+            ToggleJakas(false);
         }
     }
 
@@ -142,10 +192,10 @@ public class ClothingUI : MonoBehaviour
             ToggleCimdi(true);
         }
         
-        if (amuletiToggle != null)
+        if (jakasToggle != null) // Izmainīts no amuletiToggle
         {
-            amuletiToggle.isOn = true;
-            ToggleAmuleti(true);
+            jakasToggle.isOn = true;
+            ToggleJakas(true);
         }
     }
 }
