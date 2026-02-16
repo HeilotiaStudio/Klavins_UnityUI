@@ -593,6 +593,7 @@ GameObject:
   - component: {fileID: 263007713}
   - component: {fileID: 263007715}
   - component: {fileID: 263007714}
+  - component: {fileID: 263007716}
   m_Layer: 5
   m_Name: girl jacket
   m_TagString: Untagged
@@ -616,8 +617,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.215}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 262, y: -80.7}
-  m_SizeDelta: {x: 247.4656, y: 294.2218}
+  m_AnchoredPosition: {x: 210.25, y: -11.6}
+  m_SizeDelta: {x: 178.19, y: 271.485}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &263007714
 MonoBehaviour:
@@ -657,6 +658,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 263007712}
   m_CullTransparentMesh: 1
+--- !u!114 &263007716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263007712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4030095e430f415439065fa1de436597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DragDropClothing
+  targetTag: Character
+  clothingType: jakas
+  clothingIndex: 2
+  sfxScript: {fileID: 1467947053}
+  enableSounds: 1
 --- !u!1 &266282823
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,6 +768,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1467947053}
+        m_TargetAssemblyTypeName: SFXScript, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -852,6 +882,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+      - m_Target: {fileID: 1467947053}
+        m_TargetAssemblyTypeName: SFXScript, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &329950107
 GameObject:
@@ -1029,7 +1071,19 @@ MonoBehaviour:
       m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1467947053}
+        m_TargetAssemblyTypeName: SFXScript, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &389337114
 MonoBehaviour:
@@ -1376,6 +1430,8 @@ MonoBehaviour:
   targetTag: Character
   clothingType: bikses
   clothingIndex: 1
+  sfxScript: {fileID: 1467947053}
+  enableSounds: 1
 --- !u!1 &542730909
 GameObject:
   m_ObjectHideFlags: 0
@@ -1477,6 +1533,7 @@ GameObject:
   - component: {fileID: 606557999}
   - component: {fileID: 606557998}
   - component: {fileID: 606557997}
+  - component: {fileID: 606558000}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1558,6 +1615,103 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &606558000
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606557996}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: bf17d3a88e3294185953a4c2aa69b03d, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.471
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &613950188
 GameObject:
   m_ObjectHideFlags: 0
@@ -1907,6 +2061,7 @@ GameObject:
   - component: {fileID: 775957766}
   - component: {fileID: 775957768}
   - component: {fileID: 775957767}
+  - component: {fileID: 775957769}
   m_Layer: 5
   m_Name: Jacket
   m_TagString: Untagged
@@ -1930,8 +2085,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -307.79, y: -80.7}
-  m_SizeDelta: {x: 176.8213, y: 106.8678}
+  m_AnchoredPosition: {x: 87.46, y: -16.4}
+  m_SizeDelta: {x: 133.48, y: 86.682}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &775957767
 MonoBehaviour:
@@ -1971,6 +2126,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 775957765}
   m_CullTransparentMesh: 1
+--- !u!114 &775957769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775957765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4030095e430f415439065fa1de436597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DragDropClothing
+  targetTag: Character
+  clothingType: jakas
+  clothingIndex: 3
+  sfxScript: {fileID: 1467947053}
+  enableSounds: 1
 --- !u!1 &780162468
 GameObject:
   m_ObjectHideFlags: 0
@@ -2003,8 +2175,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000005722, y: 89}
-  m_SizeDelta: {x: 68.3713, y: 77.2668}
+  m_AnchoredPosition: {x: 0.000005722, y: 1.0434}
+  m_SizeDelta: {x: 68.3713, y: 80.992}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &783105232
 GameObject:
@@ -2128,6 +2300,7 @@ GameObject:
   - component: {fileID: 845723957}
   - component: {fileID: 845723959}
   - component: {fileID: 845723958}
+  - component: {fileID: 845723960}
   m_Layer: 5
   m_Name: Pants (1)
   m_TagString: Untagged
@@ -2151,8 +2324,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 205.8, y: -77.966}
-  m_SizeDelta: {x: 113.1879, y: 79.22}
+  m_AnchoredPosition: {x: 226.77333, y: -64.15044}
+  m_SizeDelta: {x: 145.1473, y: 87.9065}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &845723958
 MonoBehaviour:
@@ -2174,7 +2347,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 53a99f3e7ebdf994d924a168772a9b47, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dc2e0a4ac687aa94fac2b9da954d6051, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2192,6 +2365,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 845723956}
   m_CullTransparentMesh: 1
+--- !u!114 &845723960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845723956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4030095e430f415439065fa1de436597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DragDropClothing
+  targetTag: Character
+  clothingType: bikses
+  clothingIndex: 2
+  sfxScript: {fileID: 1467947053}
+  enableSounds: 1
 --- !u!1 &957288027
 GameObject:
   m_ObjectHideFlags: 0
@@ -2577,6 +2767,7 @@ GameObject:
   - component: {fileID: 1204410188}
   - component: {fileID: 1204410190}
   - component: {fileID: 1204410189}
+  - component: {fileID: 1204410191}
   m_Layer: 5
   m_Name: Jacket (1)
   m_TagString: Untagged
@@ -2600,8 +2791,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -272, y: -88}
-  m_SizeDelta: {x: 176.8213, y: 106.8678}
+  m_AnchoredPosition: {x: 313.6, y: 7.5369}
+  m_SizeDelta: {x: 134.2419, y: 87.13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1204410189
 MonoBehaviour:
@@ -2641,6 +2832,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1204410187}
   m_CullTransparentMesh: 1
+--- !u!114 &1204410191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204410187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4030095e430f415439065fa1de436597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DragDropClothing
+  targetTag: Character
+  clothingType: jakas
+  clothingIndex: 1
+  sfxScript: {fileID: 1467947053}
+  enableSounds: 1
 --- !u!1 &1223161562
 GameObject:
   m_ObjectHideFlags: 0
@@ -2946,41 +3154,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.RectMask2D
   m_Padding: {x: -8, y: -5, z: -8, w: -5}
   m_Softness: {x: 0, y: 0}
---- !u!1 &1321675323
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1321675324}
-  m_Layer: 5
-  m_Name: Jakas
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1321675324
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1321675323}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1866936709}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1447275788
 GameObject:
   m_ObjectHideFlags: 0
@@ -3129,6 +3302,7 @@ GameObject:
   - component: {fileID: 1458285852}
   - component: {fileID: 1458285854}
   - component: {fileID: 1458285853}
+  - component: {fileID: 1458285855}
   m_Layer: 5
   m_Name: Pants (2)
   m_TagString: Untagged
@@ -3152,8 +3326,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 332.97, y: -80.7}
-  m_SizeDelta: {x: 105.52, y: 79.5015}
+  m_AnchoredPosition: {x: 323.9, y: -72.9}
+  m_SizeDelta: {x: 141.6407, y: 83.104}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1458285853
 MonoBehaviour:
@@ -3193,6 +3367,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1458285851}
   m_CullTransparentMesh: 1
+--- !u!114 &1458285855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458285851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4030095e430f415439065fa1de436597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DragDropClothing
+  targetTag: Character
+  clothingType: bikses
+  clothingIndex: 3
+  sfxScript: {fileID: 1467947053}
+  enableSounds: 1
 --- !u!1 &1467947047
 GameObject:
   m_ObjectHideFlags: 0
@@ -3207,6 +3398,7 @@ GameObject:
   - component: {fileID: 1467947051}
   - component: {fileID: 1467947053}
   - component: {fileID: 1467947052}
+  - component: {fileID: 1467947054}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3392,8 +3584,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SFXScript
   sFXSource: {fileID: 1467947052}
+  musicSource: {fileID: 606558000}
   audioClip:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 7096c237e384d435ab4bf80e18bf6a18, type: 3}
+  - {fileID: 8300000, guid: 9e7d29224fe414cb2b9a1a824c36e0bc, type: 3}
+  - {fileID: 8300000, guid: 6ad3f2ddcf1854b70979eb63be7c65d5, type: 3}
+  - {fileID: 8300000, guid: 70d178aff50724ba284879183f3d0597, type: 3}
+  - {fileID: 8300000, guid: c7e441c828a3843efb07e5665d1efb14, type: 3}
+--- !u!114 &1467947054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467947047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd1c06f3c69f7f740bbbc850ab5ea742, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BackgroundMusic
+  sfxScript: {fileID: 1467947053}
+  musicClipIndex: 2
+  playOnStart: 1
+  enableMusic: 1
 --- !u!1 &1512398854
 GameObject:
   m_ObjectHideFlags: 0
@@ -3621,7 +3834,6 @@ RectTransform:
   - {fileID: 1204410188}
   - {fileID: 263007713}
   - {fileID: 775957766}
-  - {fileID: 1321675324}
   - {fileID: 1904048896}
   - {fileID: 389337112}
   - {fileID: 266282824}

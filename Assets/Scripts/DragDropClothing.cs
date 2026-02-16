@@ -15,7 +15,17 @@ public class DragDropClothing : MonoBehaviour,
     public string clothingType = "bikses"; // bikses, jakas, utt.
     public int clothingIndex = 1; // 1,2,3
     
-    // Sākotnējā pozīcija (ja grib atcelt)
+    [Header("Sound")]
+    [SerializeField] private SFXScript sfxScript; // Tava SFXScript atsauce
+    [SerializeField] private bool enableSounds = true; // Iespēja izslēgt skaņas
+    
+    // Skaņu indeksi (pielāgo pēc vajadzības)
+    private const int SOUND_CLICK = 0;
+    private const int SOUND_DRAG = 1;
+    private const int SOUND_SUCCESS = 2;
+    private const int SOUND_FAIL = 3;
+    
+    // Sākotnējā pozīcija
     private Vector2 originalPosition;
     private Transform originalParent;
     
@@ -33,15 +43,31 @@ public class DragDropClothing : MonoBehaviour,
         originalPosition = trans.anchoredPosition;
         originalParent = transform.parent;
         
+        // Mēģina atrast SFXScript ja nav norādīts
+        if (sfxScript == null && enableSounds)
+        {
+            sfxScript = FindFirstObjectByType<SFXScript>();
+            if (sfxScript == null)
+                Debug.LogWarning("Nav SFXScript! Skaņas netiks atskaņotas.");
+        }
+        
         Debug.Log($"DragDropClothing start: {clothingType} {clothingIndex}");
+    }
+    
+    // ĒRTA SKAŅAS FUNKCIJA
+    private void PlaySound(int soundIndex)
+    {
+        if (!enableSounds) return; // Viegli izslēgt
+        if (sfxScript == null) return;
+        
+        sfxScript.PlaySFX(soundIndex);
+        Debug.Log($"Atskaņo skaņu {soundIndex}");
     }
 
     public void OnPointerDown(PointerEventData data)
     {
         Debug.Log($"🖱️ Klikšķis uz {clothingType} {clothingIndex}");
-        
-        // Atskaņo skaņu (ja ir)
-        // sfxScript.PlaySFX(0);
+        PlaySound(SOUND_CLICK); // Klikšķa skaņa
         
         // Paceļ objektu virs citiem
         transform.SetAsLastSibling();
@@ -57,8 +83,8 @@ public class DragDropClothing : MonoBehaviour,
         // Ļauj tam iet cauri raycast (lai var nolaist uz tēla)
         canvasGroup.blocksRaycasts = false;
         
-        // Atskaņo skaņu
-        // sfxScript.PlaySFX(1);
+        // Vilkšanas sākuma skaņa
+        PlaySound(SOUND_DRAG);
     }
 
     public void OnDrag(PointerEventData data)
@@ -66,14 +92,9 @@ public class DragDropClothing : MonoBehaviour,
         // Pārvieto objektu peles pozīcijā
         trans.anchoredPosition += data.delta / canvas.scaleFactor;
         
-        // IEROBEŽOJUMS: Paliek ekrānā
-        Vector2 clampedPos = trans.anchoredPosition;
-        
-        // Pievieno robežas ja vajag
-        // clampedPos.x = Mathf.Clamp(clampedPos.x, minX, maxX);
-        // clampedPos.y = Mathf.Clamp(clampedPos.y, minY, maxY);
-        
-        trans.anchoredPosition = clampedPos;
+        // Ierobežo ekrānā (pēc izvēles)
+        // Vector2 clampedPos = trans.anchoredPosition;
+        // trans.anchoredPosition = clampedPos;
     }
 
     public void OnEndDrag(PointerEventData data)
@@ -95,22 +116,22 @@ public class DragDropClothing : MonoBehaviour,
             // Pievienojies tēlam kā bērns
             transform.SetParent(droppedOn.transform);
             
-            // Atskaņo veiksmes skaņu
-            // sfxScript.PlaySFX(2);
+            // Veiksmes skaņa
+            PlaySound(SOUND_SUCCESS);
             
             // Iespējams, pozicionē uz konkrētu vietu
-            // trans.anchoredPosition = new Vector2(0, 0); // Atkarīgs no tava layout
+            // trans.anchoredPosition = Vector2.zero;
         }
         else
         {
             // NOLAISTS ĀRPUS TĒLA - atgriežas atpakaļ
-            Debug.Log($" {clothingType} {clothingIndex} nolaists ārpus tēla - atgriežas");
+            Debug.Log($"{clothingType} {clothingIndex} nolaists ārpus tēla - atgriežas");
             
             transform.SetParent(originalParent);
             trans.anchoredPosition = originalPosition;
             
-            // Atskaņo kļūdas skaņu
-            // sfxScript.PlaySFX(3);
+            // Kļūdas skaņa
+            PlaySound(SOUND_FAIL);
         }
     }
     
